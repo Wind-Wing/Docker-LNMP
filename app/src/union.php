@@ -12,7 +12,6 @@ $password = "root";
 $database = "user_info";
 $conn = new mysqli($servername, $username, $password, $database);
 
-$id = $_GET["id"];
 $sql = "Select name, price from orders where id = '" . $id . "'";
 echo $sql, "<br>";
 
