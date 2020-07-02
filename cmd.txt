@@ -4,4 +4,6 @@ docker-php-ext-install pdo pdo_mysql
 docker inspect docker-lnmp_mysql_1
 docker-compose build fpm
 docker-compose up
+docker run -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.7
+
 sql 改密码要挂载新的文件，因为密码会存在数据库文件中

